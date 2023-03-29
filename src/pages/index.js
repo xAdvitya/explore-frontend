@@ -1,9 +1,26 @@
 import { Inter } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import rawAxios from 'axios';
+import Navigation from '@/components/Navigation';
+import SpotsCard from '@/components/SpotsCard';
 
 export default function Home() {
-  return <>
-  <h1>Explore App</h1>
-  </>;
+  const [user, setUser] = useState();
+  const [spots, setSpots] = useState();
+  const url = 'http://localhost:8080/spots';
+
+  useEffect(() => {
+    async function getSpots() {
+      const data = await rawAxios.get(url);
+      setSpots(data.data);
+      console.log(data.data);
+    }
+    getSpots();
+  }, []);
+  return (
+    <div className="container ">
+      <Navigation />
+      {spots && <SpotsCard spots={spots} />}
+    </div>
+  );
 }
