@@ -2,13 +2,13 @@
 
 const Navigation = () => {
   return (
-    <div className="flex items-center flex-row flex-wrap justify-between bg-orange-500 w-screen h-22">
+    <div className="flex items-center flex-row flex-wrap justify-between bg-[#3D0B37] w-screen h-22">
       <div className="flex items-center">
         <img src="/explore.png" className="w-16 h-16 mr-2" />
       </div>
 
       <div className="flex items-center">
-        <span className="text-4xl">Explore</span>
+        <span className="text-4xl text-white">Explore</span>
       </div>
 
       <div className="mr-2 dropdown">

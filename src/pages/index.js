@@ -18,9 +18,9 @@ export default function Home() {
     getSpots();
   }, []);
   return (
-    <div className="container ">
+    <div className='bg-purple-300'>
       <Navigation />
-      {spots && <SpotsCard spots={spots} />}
+      <div className="flex flex-col justify-center items-center">{spots && <SpotsCard spots={spots} />}</div>
     </div>
   );
 }

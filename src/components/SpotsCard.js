@@ -1,37 +1,38 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import styles from './Card.module.css';
 
 const SpotsCard = ({ spots }) => {
   return (
-    <div className="flex flex-row justify-center items-center">
-      <ul className="grid grid-cols-3 gap-4 ">
+    <div className="">
+      <ul className="mx-14 grid grid-cols-3 gap-8">
         {spots.map((spot) => (
           <li
-            className="mt-5 rounded-md overflow-hidden bg-gray-500 drop-shadow-xl"
+            className={`mx-5 my-3 rounded-md overflow-hidden bg-[#faf0e6] ${styles.card} hover:drop-shadow-2xl`}
             key={spot.id}
           >
             <img
               src={spot.image}
               className="max-w-full max-h-full rounded-tl-lg overflow-hidden object-cover"
             />
-            <h3 className="ml-5 text-2xl">{spot.name}</h3>
+            <h3 className="mx-5 my-3 font-semibold mt-3 text-2xl capitalize">
+              {spot.name}
+            </h3>
 
-            <div className="ml-5 flex items-start mt-2 gap-2">
+            <div className="mx-5 my-3 flex items-start mt-2 gap-2">
               <FontAwesomeIcon
                 icon={faLocationDot}
                 style={{ fontSize: 20, color: 'grey' }}
               />
-              <p>{spot.location}</p>
+              <p className="lowercase">{spot.location}</p>
             </div>
 
-            <p className="ml-5 font-normal text-gray-700">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p className="mx-5 my-3 font-normal text-gray-700 lowercase text-justify">
+              Advitya is a young man who has a deep passion for technology and
+              loves to explore new things. He is an avid learner and is always
+              eager to acquire new skills and knowledge. With his natural
+              curiosity and dedication, he is determined to achieve his goals
+              and succeed in his endeavors.
             </p>
           </li>
         ))}
