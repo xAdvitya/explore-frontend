@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import rawAxios from 'axios';
 import Navigation from '@/components/Navigation';
 import SpotsCard from '@/components/SpotsCard';
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function Home() {
   const [user, setUser] = useState();
@@ -19,9 +19,11 @@ export default function Home() {
     getSpots();
   }, []);
   return (
-    <div className='bg-purple-300'>
+    <div className="bg-purple-300">
       <Navigation />
-      <div className="flex flex-col justify-center items-center">{spots && <SpotsCard spots={spots} />}</div>
+      <div className="flex flex-col justify-center items-center">
+        {spots && <SpotsCard spots={spots} />}
+      </div>
     </div>
   );
 }
