@@ -1,15 +1,19 @@
-
+import Link from 'next/link';
 
 const Navigation = () => {
   return (
     <div className="flex items-center flex-row flex-wrap justify-between bg-[#3D0B37] w-screen h-22">
-      <div className="flex items-center">
-        <img src="/explore.png" className="w-16 h-16 mr-2" />
-      </div>
+      <Link href="/">
+        <div className="flex items-center">
+          <img src="/explore.png" className="w-16 h-16 mr-2" />
+        </div>
+      </Link>
 
-      <div className="flex items-center">
-        <span className="text-4xl text-white">Explore</span>
-      </div>
+      <Link href="/">
+        <div className="flex items-center">
+          <span className="text-4xl text-white">Explore</span>
+        </div>
+      </Link>
 
       <div className="mr-2 dropdown">
         <img
