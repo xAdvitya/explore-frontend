@@ -13,7 +13,6 @@ const Spot = () => {
     try {
       const response = await axios.get(`http://localhost:8080/spot/${spotId}`);
       const data = response.data;
-      console.log(data);
       return data;
     } catch (error) {
       console.error(error);
