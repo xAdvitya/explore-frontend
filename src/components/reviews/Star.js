@@ -21,7 +21,23 @@ const Star = () => {
 
   return (
     <div>
-
+      <div className="cursor-pointer my-3">
+        {stars.map((_, index) => {
+          return (
+            <FontAwesomeIcon
+              key={index}
+              icon={faStar}
+              size="xl"
+              color={
+                (hoverValue || currentValue) > index ? '#FFD700' : '#A9A9A9'
+              }
+              onClick={() => handleClick(index + 1)}
+              onMouseOver={() => handelMouseHover(index + 1)}
+              onMouseLeave={handelMouseLeave}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

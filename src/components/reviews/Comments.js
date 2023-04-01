@@ -1,12 +1,12 @@
-import AddComments from './AddReviews';
+import AddReviews from './AddReviews';
 import Star from './ShowStars';
 
-const Comments = ({ reviews }) => {
+const Comments = ({ reviews, handleNewComment }) => {
   return (
     <>
-      <div className="mt-8 flex flex-col ">
-        <AddComments />
-        <div className="mt-10 flex flex-col gap-5 overflow-auto max-h-96 ">
+      <div className="mt-5 flex flex-col ">
+        <AddReviews handleNewComment={handleNewComment}  />
+        <div className="mt-6 flex flex-col gap-5 overflow-auto max-h-80 ">
           <h1 className="font-semibold text-3xl">Comments</h1>
           {reviews.map((review) => (
             <div

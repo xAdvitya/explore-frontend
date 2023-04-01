@@ -20,16 +20,22 @@ const Spot = () => {
   }
 
   const [spot, setSpot] = useState(null);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     async function getSpot() {
       if (spotId) {
         const data = await fetchSpot(spotId);
         setSpot(data);
+        setComments(data.review);
       }
     }
     getSpot();
-  }, [spotId]);
+  });
+
+  function handleNewComment(comment) {
+    setComments([...comments, comment]);
+  }
 
   return (
     <>
@@ -38,7 +44,12 @@ const Spot = () => {
         {/* spot card */}
         {spot && <Card spot={spot} />}
         <>
-        {spot && <Comments reviews={spot.review}/>}
+          {spot && (
+            <Comments
+              reviews={spot.review}
+              handleNewComment={handleNewComment}
+            />
+          )}
         </>
       </div>
     </>
