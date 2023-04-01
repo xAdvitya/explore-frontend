@@ -1,5 +1,5 @@
-import AddComments from './AddComments';
-import Star from './Star';
+import AddComments from './AddReviews';
+import Star from './ShowStars';
 
 const Comments = ({ reviews }) => {
   return (

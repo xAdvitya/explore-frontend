@@ -1,33 +1,38 @@
-import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useStarRating from '@/hooks/useStarRating';
 
-const Star = ({ rating }) => {
-  const MAX_STARS = 5;
+const Star = () => {
+  const {
+    currentValue,
+    hoverValue,
+    handleStarClick,
+    handleStarHover,
+    handleStarLeave,
+  } = useStarRating();
 
-  function getStars(rating) {
-    const roundedRating = Math.round(rating * 2) / 2;
-    const fullStars = Math.floor(roundedRating);
-    const hasHalfStar = roundedRating - fullStars >= 0.5;
-    const emptyStars = MAX_STARS - fullStars - (hasHalfStar ? 1 : 0);
+  return (
+    <div>
+      {[...Array(5)].map((_, index) => {
+        const starValue = index + 1;
 
-    const stars = [];
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<FontAwesomeIcon icon={faStar} color="#FFD700" />);
-    }
-
-    if (hasHalfStar) {
-      stars.push(<FontAwesomeIcon icon={faStarHalfAlt} color="#FFD700" />);
-    }
-
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FontAwesomeIcon icon={faStar} color="#A9A9A9" />);
-    }
-
-    return stars;
-  }
-
-  return <p>{getStars(rating)}</p>;
+        return (
+          <FontAwesomeIcon
+            key={starValue}
+            icon={faStar}
+            size="xl"
+            color={
+              (hoverValue || currentValue) >= starValue ? '#FFD700' : '#A9A9A9'
+            }
+            onClick={() => handleStarClick(starValue)}
+            onMouseEnter={() => handleStarHover(starValue)}
+            onMouseLeave={handleStarLeave}
+            style={{ cursor: 'pointer', margin: '0.25rem' }}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 export default Star;
