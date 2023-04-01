@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const AddReviews = ({ newReview, setNewReviews, handleNewComment }) => {
+const AddReviews = ({ handleNewComment, spotId }) => {
   const [reviewText, setReviewText] = useState('');
   const [error, setError] = useState('');
   const stars = Array(5).fill(0);
@@ -36,7 +36,7 @@ const AddReviews = ({ newReview, setNewReviews, handleNewComment }) => {
     } else {
       handleNewComment([currentValue, reviewText]);
       axios
-        .post('http://localhost:8080/review/2/user', {
+        .post(`http://localhost:8080/review/${spotId}/user`, {
           rating: currentValue,
           reviewText: reviewText,
         })

@@ -48,6 +48,7 @@ const Spot = () => {
             <Comments
               reviews={spot.review}
               handleNewComment={handleNewComment}
+              spotId={spotId}
             />
           )}
         </>
