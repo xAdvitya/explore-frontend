@@ -12,7 +12,7 @@ const AddReviews = ({ handleNewComment, spotId }) => {
   const stars = Array(5).fill(0);
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState();
-  const { isLoggedIn } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
 
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -37,7 +37,7 @@ const AddReviews = ({ handleNewComment, spotId }) => {
       setError(true);
     } else {
       axios
-        .post(`http://localhost:8080/review/${spotId}/user`, {
+        .post(`http://localhost:8080/review/${spotId}/${user}`, {
           rating: currentValue,
           reviewText: reviewText,
         })
