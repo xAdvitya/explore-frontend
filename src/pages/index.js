@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import rawAxios from 'axios';
 import Navigation from '@/components/Navigation';
 import SpotsCard from '@/components/SpotsCard';
-import Link from 'next/link';
 
 export default function Home() {
   const [user, setUser] = useState();

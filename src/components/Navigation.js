@@ -1,6 +1,14 @@
 import Link from 'next/link';
+import { AuthContext } from '@/contexts/AuthContext';
+import { useContext, useEffect, useState } from 'react';
 
 const Navigation = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="flex items-center flex-row flex-wrap justify-between bg-[#3D0B37] w-screen h-22">
       <Link href="/">
@@ -15,12 +23,28 @@ const Navigation = () => {
         </div>
       </Link>
 
-      <div className="mr-2 dropdown">
-        <img
-          src="https://avatars.githubusercontent.com/u/54709416?v=4"
-          className="w-14 h-14 border-2 border-white rounded-md"
-        />
-      </div>
+      {!isLoggedIn && (
+        <div className="mr-2">
+          <Link href="/auth">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Log In
+            </button>
+          </Link>
+        </div>
+      )}
+
+      {isLoggedIn && (
+        <div className="mr-2">
+          <Link href="/auth">
+            <button
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
