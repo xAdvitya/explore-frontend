@@ -41,7 +41,7 @@ const AddReviews = ({ handleNewComment, spotId }) => {
           rating: currentValue,
           reviewText: reviewText,
         })
-        .then((response) => console.log(response.data))
+        .then((response) => console.log(response.data,spotId))
         .catch((error) => console.error(error));
 
       setReviewText('');
