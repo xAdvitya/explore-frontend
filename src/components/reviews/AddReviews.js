@@ -41,7 +41,7 @@ const AddReviews = ({ handleNewComment, spotId }) => {
           rating: currentValue,
           reviewText: reviewText,
         })
-        .then((response) => console.log(response.data))
+        .then((response) => console.log(response.data,spotId))
         .catch((error) => console.error(error));
 
       setReviewText('');
@@ -83,6 +83,7 @@ const AddReviews = ({ handleNewComment, spotId }) => {
               <textarea
                 className="border border-gray-400 rounded-lg p-2"
                 value={reviewText}
+                maxLength={300}
                 onChange={handleReviewTextChange}
               ></textarea>
               <button className="bg-blue-500 text-white font-bold py-2 px-2 rounded-lg mt-2 ">
