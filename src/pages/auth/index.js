@@ -7,7 +7,6 @@ const AuthPage = () => {
   const [signup, setSignup] = useState(false);
 
   const handelAuthPage = () => {
-    console.log('xxxxxxxxxxx');
     setSignup(!signup);
   };
   return (

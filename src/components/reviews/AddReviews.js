@@ -37,7 +37,7 @@ const AddReviews = ({ handleNewComment, spotId }) => {
       setError(true);
     } else {
       axios
-        .post(`http://localhost:8080/review/${spotId}/${user}`, {
+        .post(`http://localhost:${process.env.PORT}/review/${spotId}/${user}`, {
           rating: currentValue,
           reviewText: reviewText,
         })

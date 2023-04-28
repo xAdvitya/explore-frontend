@@ -11,7 +11,7 @@ const Spot = () => {
 
   async function fetchSpot(spotId) {
     try {
-      const response = await axios.get(`http://localhost:8080/spot/${spotId}`);
+      const response = await axios.get(`http://localhost:${process.env.PORT}/spot/${spotId}`);
       const data = response.data;
       return data;
     } catch (error) {

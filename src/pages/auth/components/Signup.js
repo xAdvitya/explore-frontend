@@ -10,7 +10,8 @@ const Signup = ({ handelAuthPage }) => {
   const [passwordError, setPasswordError] = useState(false);
   const router = useRouter();
   const { setUser, setIsLoggedIn } = useContext(AuthContext);
-
+  const p = process.env.PORT;
+  
   const handelUsername = (event) => {
     setUserNameError(false);
     setUserName(event.target.value);
@@ -28,7 +29,7 @@ const Signup = ({ handelAuthPage }) => {
   };
 
   const handelLoginError = (error) => {
-    alert('enter correct username/password');
+    alert('username exists');
   };
 
   const handelSubmit = (event) => {
@@ -53,7 +54,7 @@ const Signup = ({ handelAuthPage }) => {
     }
     if (!hasErrors) {
       axios
-        .post(`http://localhost:8080/auth/${userName}`, {
+        .post(`http://localhost:${process.env.PORT}/auth`, {
           password: password,
         })
         .then((response) => handelLogin())

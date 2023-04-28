@@ -7,10 +7,11 @@ import SpotsCard from '@/components/SpotsCard';
 export default function Home() {
   const [user, setUser] = useState();
   const [spots, setSpots] = useState();
-  const url = 'http://localhost:8080/spots';
+  const url = `http://localhost:${process.env.PORT}/spots`;
 
   useEffect(() => {
     async function getSpots() {
+      console.log(url)
       const data = await rawAxios.get(url);
       setSpots(data.data);
       console.log(data.data);
