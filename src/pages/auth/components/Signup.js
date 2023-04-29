@@ -10,8 +10,7 @@ const Signup = ({ handelAuthPage }) => {
   const [passwordError, setPasswordError] = useState(false);
   const router = useRouter();
   const { setUser, setIsLoggedIn } = useContext(AuthContext);
-  const p = process.env.PORT;
-  
+
   const handelUsername = (event) => {
     setUserNameError(false);
     setUserName(event.target.value);
@@ -30,6 +29,7 @@ const Signup = ({ handelAuthPage }) => {
 
   const handelLoginError = (error) => {
     alert('username exists');
+    alert(error);
   };
 
   const handelSubmit = (event) => {
@@ -45,16 +45,19 @@ const Signup = ({ handelAuthPage }) => {
     if (password.trim() === '') {
       setPasswordError(true);
       hasErrors = true;
-    } else if (password.trim().length < 3) {
+    } else if (password.trim().length < 8) {
       setPasswordError(true);
-      alert('Password must be at least 3 characters long');
+      alert('Password must be at least 8 characters long');
       hasErrors = true;
     } else {
       setPasswordError(false);
     }
     if (!hasErrors) {
+      // console.log(`http://localhost:${process.env.PORT}/auth`);
+      // console.log(`http://localhost:3001/auth`);
       axios
-        .post(`http://localhost:${process.env.PORT}/auth`, {
+        .post(`http://localhost:3001/auth`, {
+          userName: userName,
           password: password,
         })
         .then((response) => handelLogin())
@@ -67,6 +70,7 @@ const Signup = ({ handelAuthPage }) => {
       <div className="bg-gray-200 w-1/2 p-4 flex flex-col items-center">
         <h1 className="text-3xl mb-8 cursor-pointer">
           <span onClick={handelAuthPage}>Signup</span>
+          <span className="text-sm block text-sky-400">click to login</span>
         </h1>
         <form className="flex flex-col items-center" onSubmit={handelSubmit}>
           <div className="mb-4">
@@ -108,7 +112,7 @@ const Signup = ({ handelAuthPage }) => {
             />
           </div>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Login
+            signup
           </button>
         </form>
       </div>

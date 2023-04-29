@@ -23,7 +23,7 @@ export default function Home() {
     // setSelectedOption(event.target.value);
   };
   return (
-    <div className="bg-purple-300 min-h-screen min-w-screen">
+    <div className="bg-purple-300 min-h-screen max-w-screen ove">
       <Navigation
         selectedOption={selectedOption}
         handleOptionChange={handleOptionChange}

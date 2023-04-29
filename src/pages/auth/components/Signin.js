@@ -55,7 +55,7 @@ const Signin = ({ handelAuthPage }) => {
       axios
         .post(`http://localhost:${process.env.PORT}/auth/${userName}`, {
           password: password,
-        })
+        })  
         .then((response) => handelLogin())
         .catch((error) => handelLoginError(error));
     }
@@ -66,6 +66,7 @@ const Signin = ({ handelAuthPage }) => {
       <div className="bg-gray-200 w-1/2 p-4 flex flex-col items-center">
         <h1 className="text-3xl mb-8 cursor-pointer">
           <span onClick={handelAuthPage}>Login</span>
+          <span className='text-sm block text-sky-400'>click to signup</span>
         </h1>
         <form className="flex flex-col items-center" onSubmit={handelSubmit}>
           <div className="mb-4">

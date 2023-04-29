@@ -6,7 +6,7 @@ import Link from 'next/link';
 const SpotsCard = ({ spots }) => {
   return (
     <div>
-      <ul className="mx-14 grid grid-cols-3 gap-8">
+      <ul className="mx-10 grid grid-cols-3 gap-4 max-w-screen">
         {spots.map((spot) => (
           <li
             className={`mx-5 my-3 rounded-md overflow-hidden bg-[#faf0e6] ${styles.card} hover:drop-shadow-2xl`}
@@ -15,7 +15,7 @@ const SpotsCard = ({ spots }) => {
             <Link href={`/spot/${spot.id}`}>
               <img
                 src={spot.image}
-                className="max-w-full max-h-full rounded-tl-lg overflow-hidden object-cover"
+                className="max-w-screen max-h-screen rounded-tl-lg overflow-hidden object-cover"
               />
               <h3 className="mx-5 my-3 font-semibold mt-3 text-2xl capitalize">
                 {spot.name}

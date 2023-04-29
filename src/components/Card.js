@@ -11,7 +11,7 @@ const Card = ({ spot }) => {
         >
           <img
             src={spot.image}
-            className="max-w-full max-h-full rounded-tl-lg overflow-hidden object-cover"
+            className="rounded-tl-lg  object-cover max-w-screen max-h-fit"
           />
           <h3 className="mx-5 my-3 font-semibold mt-3 text-2xl capitalize">
             {spot.name}
