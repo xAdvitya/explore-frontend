@@ -26,11 +26,7 @@ const Card = ({ spot }) => {
           </div>
 
           <p className="mx-5 my-3 font-normal text-gray-700 lowercase text-justify">
-            Advitya is a young man who has a deep passion for technology and
-            loves to explore new things. He is an avid learner and is always
-            eager to acquire new skills and knowledge. With his natural
-            curiosity and dedication, he is determined to achieve his goals and
-            succeed in his endeavors.
+            {spot.description}
           </p>
         </li>
       </ul>

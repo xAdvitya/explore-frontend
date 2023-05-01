@@ -48,7 +48,7 @@ const Navigation = ({ selectedOption, handleOptionChange }) => {
               <option value="fun">Fun</option>
               <option value="study">Study</option>
               <option value="food">Food</option>
-              <option value="entertainment">Entertainment</option>
+              <option value="shopping">Shop</option>
             </select>
           </div>
         )}
